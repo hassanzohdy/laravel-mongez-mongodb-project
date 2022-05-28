@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "9736f369-dc5c-4ee9-a856-e0af096d3ad3",
+		"name": "Guests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Guest Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/guests",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guest Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/guests/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"guests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Guest Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/admin/guests/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"guests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Site",
+			"item": [
+				{
+					"name": "Guest Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();",
+									"if (res.authorization.accessToken) {",
+									"pm.environment.set('access_token', res.authorization.accessToken)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "locale-code",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "DEVICE-ID",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "DEVICE-TYPE",
+								"value": "pc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}login/guests",
+							"host": [
+								"{{baseUrl}}login"
+							],
+							"path": [
+								"guests"
+							]
+						},
+						"description": "## Request Headers\n\n| **key** | **type** | **required** |\n| --- | --- | --- |\n| DEVICE-ID | string | false |\n| DEVICE-TYPE | string | false |\n\n## Response Shape\n\n``` json\n{\n    \"data\":{\n        \"authorization\":{\n            \"type\": \"string\",\n            \"accessToken\": \"string\",\n        }\n    }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Guest Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "locale-code",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{apiKey}}",
+										"type": "text"
+									},
+									{
+										"key": "DEVICE-ID",
+										"value": "123456789",
+										"type": "text"
+									},
+									{
+										"key": "DEVICE-TYPE",
+										"value": "pc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}login/guests",
+									"host": [
+										"{{baseUrl}}login"
+									],
+									"path": [
+										"guests"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Mar 2022 09:42:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.52 (Win64) PHP/8.1.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"authorization\": {\n            \"type\": \"guest\",\n            \"accessToken\": \"622dbc6ad5430000f6005d53|C4JCM1D2s25uc6sWsRym0Rf8nv6N1XsuMYjdnNbF\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

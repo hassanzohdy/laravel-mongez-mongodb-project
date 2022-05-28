@@ -1,0 +1,1092 @@
+{
+	"info": {
+		"_postman_id": "9736f369-dc5c-4ee9-a856-e0af096d3ad3",
+		"name": "User Groups",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marwa@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "966507940308",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users-groups",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users-groups"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| name | string | true |\n| email | string | true |\n| phoneNumber | string | false |\n| password | string | true |\n| published | boolean | false |\n\n## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n      \"name\":\"Test\n Create\",\n      \"email\":\"marwa@test.com\",\n      \"phoneNumber\":\"966507940308\",\n      \"id\":5,\n      \"published\":true,\n      \"group\":null\n    }\n  }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}admin/users",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"records\": [\n            {\n                \"name\": \"Moderators\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.update\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.update\",\n                    \"usersGroups.delete\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.update\",\n                    \"pages.delete\",\n                    \"settings.list\",\n                    \"settings.edit\",\n                    \"reports.list\",\n                    \"homeSettings.list\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 23,\n                \"published\": false\n            },\n            {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.update\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.update\",\n                    \"usersGroups.delete\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.update\",\n                    \"pages.delete\",\n                    \"settings.list\",\n                    \"settings.edit\",\n                    \"reports.list\",\n                    \"homeSettings.list\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        ],\n        \"paginationInfo\": {\n            \"currentResults\": 2,\n            \"totalRecords\": 2,\n            \"numberOfPages\": 1,\n            \"itemsPerPage\": 15,\n            \"currentPage\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marwa@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "966507940308",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users-groups/23",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users-groups",
+								"23"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| name | string | true |\n| email | string | true |\n| phoneNumber | string | false |\n| password | string | true |\n| published | boolean | false |\n\n## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n      \"name\":\"Test\n Create\",\n      \"email\":\"marwa@test.com\",\n      \"phoneNumber\":\"966507940308\",\n      \"id\":5,\n      \"published\":true,\n      \"group\":null\n    }\n  }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Get",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}admin/users-groups/23",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"users-groups",
+										"23"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Moderators\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.update\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.update\",\n                \"usersGroups.delete\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.update\",\n                \"pages.delete\",\n                \"settings.list\",\n                \"settings.edit\",\n                \"reports.list\",\n                \"homeSettings.list\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 23,\n            \"published\": false\n        }\n    }\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}admin/users/1",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"error\",\n                \"value\": \"notFound\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marwa@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "966507940308",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}admin/users-groups/3",
+							"host": [
+								"{{base_url}}admin"
+							],
+							"path": [
+								"users-groups",
+								"3"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| name | string | true |\n| email | string | true |\n| phoneNumber | string | false |\n| password | string | true |\n| published | boolean | false |\n\n## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n      \"name\":\"Test\n Create\",\n      \"email\":\"marwa@test.com\",\n      \"phoneNumber\":\"966507940308\",\n      \"id\":5,\n      \"published\":true,\n      \"group\":null\n    }\n  }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}admin/users-groups/1",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"users-groups",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"success\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "[admin] Create new User Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tokenType}} {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Moderators",
+									"description": "string, required",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "settings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "settings.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "reports.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "homeSettings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.reply",
+									"description": "boolean",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}admin/users-groups",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"users-groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "[admin] Create new User Group",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Moderators",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "settings.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users-groups",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users-groups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Mar 2022 10:22:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.52 (Win64) PHP/8.1.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "393"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Moderators\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.update\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.update\",\n                \"usersGroups.delete\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.update\",\n                \"pages.delete\",\n                \"settings.list\",\n                \"settings.edit\",\n                \"reports.list\",\n                \"homeSettings.list\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 23,\n            \"published\": false\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "[admin] Update User Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tokenType}} {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Super Admins",
+									"description": "string, required",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.add",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.update",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.delete",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.add",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.update",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "usersGroups.delete",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.add",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.update",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "pages.delete",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "settings.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "settings.edit",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "reports.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "homeSettings.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.list",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.delete",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "contactUs.reply",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}users-groups/1",
+							"host": [
+								"{{url}}users-groups"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "[admin] Update User Group",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.update",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.delete",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.add",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.update",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "usersGroups.delete",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.add",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.update",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "pages.delete",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "settings.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "settings.edit",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "reports.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "homeSettings.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.list",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.delete",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "contactUs.reply",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users-groups/1",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users-groups",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 21 Mar 2022 10:20:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.52 (Win64) PHP/8.1.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.2"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "394"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Super Admins\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.update\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.update\",\n                \"usersGroups.delete\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.update\",\n                \"pages.delete\",\n                \"settings.list\",\n                \"settings.edit\",\n                \"reports.list\",\n                \"homeSettings.list\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 1,\n            \"published\": false\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

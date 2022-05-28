@@ -1,0 +1,5810 @@
+{
+	"info": {
+		"_postman_id": "0a9e29a6-8136-4b5e-953d-366131fbf1c4",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{guestToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hassanzohdy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/login",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "## Request body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| email | string | true |\n| password | password | true |\n\n## Response Shape\n\n``` json\n{\"data\":{\"authorization\":{\"type\":\"string\",\"accessToken\":\"string\"},\"record\":{\"name\":\"string\",\"email\":\"string\",\"phoneNumber\":\"string\",\"id\":\"int\",\"published\":\"boolean\",\"group\":{}}}}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Wrong Data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin1@rowaad.net",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/login",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"email\",\n                \"value\": \"These credentials do not match our records.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/login",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:45:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:45:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"authorization\": {\n            \"type\": \"user\",\n            \"accessToken\": \"624b048fbb57082d9d36f04f|ZYh4gjMXHcVWUGgHmzmF1TRQm37PsXdfVgkNpLhM\"\n        },\n        \"record\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/logout",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"logout"
+							]
+						},
+						"description": "## Request body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| email | string | true |\n| password | password | true |\n\n## Response Shape\n\n``` json\n{\"data\":{\"authorization\":{\"type\":\"string\",\"accessToken\":\"string\"},\"record\":{\"name\":\"string\",\"email\":\"string\",\"phoneNumber\":\"string\",\"id\":\"int\",\"published\":\"boolean\",\"group\":{}}}}\n\n```"
+					},
+					"response": [
+						{
+							"name": "success logout",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/logout",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:51:01 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:51:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true\n}"
+						},
+						{
+							"name": "failed without token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/logout",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:51:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:51:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "oldPassword",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/update-password",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"update-password"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| oldPassword | string | true |\n| password | string | true |\n| password_confirmation | string | true |\n\n## Response\n\n``` json\n{\"data\":{\"record\":{\"name\":\"string\",\"email\":\"string\",\"phoneNumber\":\"string\",\"id\":\"int\",\"published\":\"boolean\",\"group\":{}}}}\n\n```"
+					},
+					"response": [
+						{
+							"name": "Wrong confirmation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "oldPassword",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "123123122",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-password"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"password\",\n                \"value\": \"The password confirmation does not match.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "failed without token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "oldPassword",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "123123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-password"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:53:50 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 15:53:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "success Update Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "oldPassword",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "123123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:47:57 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:47:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hassanzohdy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "0123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/update-profile",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"update-profile"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| oldPassword | string | true |\n| password | string | true |\n| password_confirmation | string | true |\n\n## Response\n\n``` json\n{\"data\":{\"record\":{\"name\":\"string\",\"email\":\"string\",\"phoneNumber\":\"string\",\"id\":\"int\",\"published\":\"boolean\",\"group\":{}}}}\n\n```"
+					},
+					"response": [
+						{
+							"name": "failed Update Password vaildation message",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:04:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:04:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"key\": \"name\",\n            \"value\": \"The name field is required.\"\n        },\n        {\n            \"key\": \"email\",\n            \"value\": \"The email field is required.\"\n        },\n        {\n            \"key\": \"phoneNumber\",\n            \"value\": \"The phone number field is required.\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "failed Update Password  without token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-password"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:08:56 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:08:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "success Update profile",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "0123456789",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/update-profile",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"update-profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:49:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:49:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin\",\n            \"email\": \"hassanzohdy@gmail.com\",\n            \"phoneNumber\": \"0123456789\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{guestToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hassanzohdy@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/forget-password",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"forget-password"
+							]
+						},
+						"description": "## Request body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| email | string | true |\n\n## Response Shape\n\n```\n{\n    \"data\": {\n        \"success\": true\n    }\n}\n```"
+					},
+					"response": [
+						{
+							"name": "failed forget-password authorization",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "mohamed@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/forget-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"forget-password"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 08:49:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 08:49:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "failed forget-password invalid email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "mohamed@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/forget-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"forget-password"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 08:49:32 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 08:49:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"email\",\n                \"value\": \"The selected email is invalid.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success forget-password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/forget-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"forget-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:05:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:05:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"success\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "verify-code",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{guestToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hassanzohdy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "6000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/verify-code",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"verify-code"
+							]
+						},
+						"description": "## Request body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| email | string | true |\n| code | int | true |\n\n## Response Shape\n\n``` json\n{\n    \"data\": {\n        \"success\": true\n    }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "success verify-code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "6000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/verify-code",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"verify-code"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:06:55 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:06:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"success\": true\n    }\n}"
+						},
+						{
+							"name": "failed verify-code authorization",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "6000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/verify-code",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"verify-code"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:07:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:07:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "failed verify-code validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hassanzohdy@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "code",
+											"value": "6000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/verify-code",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"verify-code"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:07:43 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:07:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"email\",\n                \"value\": \"The email field is required.\"\n            },\n            {\n                \"key\": \"code\",\n                \"value\": \"The code field is required.\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "reset-code",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{guestToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "6000",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123123123",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/reset-password",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"reset-password"
+							]
+						},
+						"description": "## Request body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| code | int | true |\n| password | password | true |\n| password_confirmation | password | true |\n\n## Response Shape\n\n```\n{\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin\",\n            \"email\": \"hassanzohdy@gmail.com\",\n            \"phoneNumber\": \"0123456789\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}\n```"
+					},
+					"response": [
+						{
+							"name": "success reset-code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "6000",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "123123123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/reset-password",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:15:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:15:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin\",\n            \"email\": \"hassanzohdy@gmail.com\",\n            \"phoneNumber\": \"0123456789\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}admin/me",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "failed without authorization",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}admin/me",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:30:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Mar 2022 16:30:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "success me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}admin/me",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:43:55 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:43:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy1@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "users.index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marwa@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "966507940308",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "## Response\n\n``` json\n{\n    \"data\": {\n        \"records\": [\n            {\n                \"name\": \"string\",\n                \"email\": \"string\",\n                \"phoneNumber\": \"string\",\n                \"id\": \"int\",\n                \"published\": \"boolean\",\n                \"group\": {}\n            }\n        ]\n    }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "failed users.index authorization",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:34:46 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:34:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "success users.index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:41:47 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:41:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"records\": [\n            {\n                \"name\": \"admin name\",\n                \"email\": \"hassanzohdy1@gmail.com\",\n                \"phoneNumber\": \"96650794030833\",\n                \"id\": 2,\n                \"published\": true,\n                \"group\": {\n                    \"name\": \"Super Admins\",\n                    \"permissions\": [\n                        \"users.list\",\n                        \"users.add\",\n                        \"users.edit\",\n                        \"users.delete\",\n                        \"usersGroups.list\",\n                        \"usersGroups.add\",\n                        \"usersGroups.edit\",\n                        \"usersGroups.delete\",\n                        \"settings.list\",\n                        \"settings.update\",\n                        \"homeSettings.list\",\n                        \"reports.list\",\n                        \"pages.list\",\n                        \"pages.add\",\n                        \"pages.edit\",\n                        \"pages.delete\",\n                        \"contactUs.list\",\n                        \"contactUs.delete\",\n                        \"contactUs.reply\"\n                    ],\n                    \"id\": 1,\n                    \"published\": false\n                }\n            },\n            {\n                \"name\": \"admin name\",\n                \"email\": \"hassanzohdy1@gmail.com\",\n                \"phoneNumber\": \"96650794030833\",\n                \"id\": 1,\n                \"published\": true,\n                \"group\": {\n                    \"name\": \"Super Admins\",\n                    \"permissions\": [\n                        \"users.list\",\n                        \"users.add\",\n                        \"users.edit\",\n                        \"users.delete\",\n                        \"usersGroups.list\",\n                        \"usersGroups.add\",\n                        \"usersGroups.edit\",\n                        \"usersGroups.delete\",\n                        \"settings.list\",\n                        \"settings.update\",\n                        \"homeSettings.list\",\n                        \"reports.list\",\n                        \"pages.list\",\n                        \"pages.add\",\n                        \"pages.edit\",\n                        \"pages.delete\",\n                        \"contactUs.list\",\n                        \"contactUs.delete\",\n                        \"contactUs.reply\"\n                    ],\n                    \"id\": 1,\n                    \"published\": false\n                }\n            }\n        ],\n        \"paginationInfo\": {\n            \"currentResults\": 2,\n            \"totalRecords\": 2,\n            \"numberOfPages\": 1,\n            \"itemsPerPage\": 15,\n            \"currentPage\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hassanzohdy1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "96650794030833",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| name | string | true |\n| email | string | true |\n| phoneNumber | string | false |\n| password | string | true |\n| published | boolean | false |\n\n## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n      \"name\":\"string\",\n      \"email\":\"string\",\n      \"phoneNumber\":\"string\",\n      \"id\":\"int\",\n      \"published\":\"boolean\",\n      \"group\":{}\n    }\n  }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "failed users.store authorization",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{guestToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "admin name",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hassanzohdy1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "96650794030833",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "group",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:33:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:33:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "success users.store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "admin name",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hassanzohdy1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "96650794030833",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "group",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:33:33 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:33:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy1@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 2,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "user.update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "admin name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hassanzohdy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "96650794030833",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users/1",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "## Request Body\n\n| **Key** | **Type** | **Required** |\n| --- | --- | --- |\n| name | string | true |\n| email | string | true |\n| phoneNumber | string | false |\n| password | string | true |\n| published | boolean | false |\n\n## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n      \"name\":\"string\",\n      \"email\":\"string\",\n      \"phoneNumber\":\"string\",\n      \"id\":\"int\",\n      \"published\":\"boolean\",\n      \"group\":{}\n    }\n  }\n}\n\n\n```"
+					},
+					"response": [
+						{
+							"name": "success user.update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "admin name",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hassanzohdy1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "96650794030833",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "group",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/1",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:38:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:38:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy1@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"disabled": true
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Create",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "marwa@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "966507940308",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users/1",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "## Response\n\n``` json\n{\n  \"data\":{\n    \"record\":{\n                \"name\": \"string\",\n                \"email\": \"string\",\n                \"phoneNumber\": \"string\",\n                \"id\": \"int\",\n                \"published\": \"boolean\",\n                \"group\": {}\n            }\n  }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "failed users.show authorization",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/1",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:40:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:40:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						},
+						{
+							"name": "failed users.show not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/112353",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"112353"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:40:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:40:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"error\",\n                \"value\": \"Item is not found.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success users.show",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test Create",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "marwa@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "966507940308",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/1",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:39:43 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:39:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"admin name\",\n            \"email\": \"hassanzohdy1@gmail.com\",\n            \"phoneNumber\": \"96650794030833\",\n            \"id\": 1,\n            \"published\": true,\n            \"group\": {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}admin/users/2",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						},
+						"description": "## Response Shape\n\n``` json\n{\n    \"data\": {\n        \"success\": \"boolean\"\n    }\n}\n\n```"
+					},
+					"response": [
+						{
+							"name": "failed users.delete notfound",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/3",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:42:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:42:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"error\",\n                \"value\": \"Item is not found.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "success users.delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}admin/users/2",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:43:07 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:43:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"success\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.groups.index",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}admin/users-groups",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users-groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users.groups.index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}admin/users-groups",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users-groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:25:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:25:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"records\": [\n            {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 4,\n                \"published\": false\n            },\n            {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 3,\n                \"published\": false\n            },\n            {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 2,\n                \"published\": false\n            },\n            {\n                \"name\": \"Super Admins\",\n                \"permissions\": [\n                    \"users.list\",\n                    \"users.add\",\n                    \"users.edit\",\n                    \"users.delete\",\n                    \"usersGroups.list\",\n                    \"usersGroups.add\",\n                    \"usersGroups.edit\",\n                    \"usersGroups.delete\",\n                    \"settings.list\",\n                    \"settings.update\",\n                    \"homeSettings.list\",\n                    \"reports.list\",\n                    \"pages.list\",\n                    \"pages.add\",\n                    \"pages.edit\",\n                    \"pages.delete\",\n                    \"contactUs.list\",\n                    \"contactUs.delete\",\n                    \"contactUs.reply\"\n                ],\n                \"id\": 1,\n                \"published\": false\n            }\n        ],\n        \"paginationInfo\": {\n            \"currentResults\": 4,\n            \"totalRecords\": 4,\n            \"numberOfPages\": 1,\n            \"itemsPerPage\": 15,\n            \"currentPage\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.groups.show",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"type": "text"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}admin/users-groups/3",
+							"host": [
+								"{{baseUrl}}admin"
+							],
+							"path": [
+								"users-groups",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users.groups.show",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"type": "text"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}admin/users-groups/3",
+									"host": [
+										"{{baseUrl}}admin"
+									],
+									"path": [
+										"users-groups",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:27:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Apr 2022 09:27:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Super Admins\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.edit\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.edit\",\n                \"usersGroups.delete\",\n                \"settings.list\",\n                \"settings.update\",\n                \"homeSettings.list\",\n                \"reports.list\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.edit\",\n                \"pages.delete\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 3,\n            \"published\": false\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.groups.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Super Admins",
+									"description": "string, required",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " homeSettings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " reports.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.reply",
+									"description": "boolean",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/users-groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users-groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users.groups.store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:23:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:23:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Super Admins\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.edit\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.edit\",\n                \"usersGroups.delete\",\n                \"settings.list\",\n                \"settings.update\",\n                \"homeSettings.list\",\n                \"reports.list\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.edit\",\n                \"pages.delete\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 4,\n            \"published\": false\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.groups.update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}",
+								"disabled": true
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Super Admins",
+									"description": "string, required",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " homeSettings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " reports.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.reply",
+									"description": "boolean",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/users-groups/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users-groups",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users.groups.update",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:25:24 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:25:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"record\": {\n            \"name\": \"Super Admins\",\n            \"permissions\": [\n                \"users.list\",\n                \"users.add\",\n                \"users.edit\",\n                \"users.delete\",\n                \"usersGroups.list\",\n                \"usersGroups.add\",\n                \"usersGroups.edit\",\n                \"usersGroups.delete\",\n                \"settings.list\",\n                \"settings.update\",\n                \"homeSettings.list\",\n                \"reports.list\",\n                \"pages.list\",\n                \"pages.add\",\n                \"pages.edit\",\n                \"pages.delete\",\n                \"contactUs.list\",\n                \"contactUs.delete\",\n                \"contactUs.reply\"\n            ],\n            \"id\": 1,\n            \"published\": false\n        }\n    }\n}"
+						},
+						{
+							"name": "failed users.groups.update not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups/111111",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups",
+										"111111"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:27:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:27:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"error\",\n                \"value\": \"Item is not found.\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "failed users.groups.update authorization",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}",
+										"disabled": true
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups",
+										"1"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:27:46 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:27:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthenticated.\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users.groups.delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "os",
+								"value": "{{os}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Super Admins",
+									"description": "string, required",
+									"type": "text"
+								},
+								{
+									"key": "published",
+									"value": "1",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": "users.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " users.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " usersGroups.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " settings.update",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " homeSettings.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " reports.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.add",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.edit",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " pages.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.list",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.delete",
+									"description": "boolean",
+									"type": "text"
+								},
+								{
+									"key": "permissions[]",
+									"value": " contactUs.reply",
+									"description": "boolean",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/users-groups/400000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"users-groups",
+								"400000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "users.groups.delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups/4",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:26:21 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:26:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"success\": true\n    }\n}"
+						},
+						{
+							"name": "failed users.groups.delete not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{userToken}}"
+									},
+									{
+										"key": "os",
+										"value": "{{os}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Super Admins",
+											"description": "string, required",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "users.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " users.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " usersGroups.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " settings.update",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " homeSettings.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " reports.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.add",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.edit",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " pages.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.list",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.delete",
+											"description": "boolean",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": " contactUs.reply",
+											"description": "boolean",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users-groups/400000",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users-groups",
+										"400000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:28:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Apr 2022 14:28:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.3"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"errors\": [\n            {\n                \"key\": \"error\",\n                \"value\": \"Item is not found.\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
